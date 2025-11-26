@@ -1,0 +1,42 @@
+// Criar flocos de neve
+function createSnowflakes() {
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const snowflakeCount = 50;
+    
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+        
+        // Posição e tamanho aleatórios
+        const size = Math.random() * 1.5 + 0.5;
+        const left = Math.random() * 100;
+        const animationDuration = Math.random() * 5 + 5;
+        const animationDelay = Math.random() * 5;
+        
+        snowflake.style.left = `${left}vw`;
+        snowflake.style.fontSize = `${size}em`;
+        snowflake.style.animationDuration = `${animationDuration}s`;
+        snowflake.style.animationDelay = `${animationDelay}s`;
+        
+        snowflakesContainer.appendChild(snowflake);
+    }
+}
+
+// Controles de música
+const music = document.getElementById('christmasMusic');
+const playButton = document.getElementById('playMusic');
+const pauseButton = document.getElementById('pauseMusic');
+
+playButton.addEventListener('click', () => {
+    music.play();
+});
+
+pauseButton.addEventListener('click', () => {
+    music.pause();
+});
+
+// Inicializar efeitos
+window.onload = function() {
+    createSnowflakes();
+};
